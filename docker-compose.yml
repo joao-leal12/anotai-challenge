@@ -1,0 +1,13 @@
+services:
+  db: 
+    image: postgres
+    restart: "always"
+    environment:
+      - POSTGRES_DB=anotai_db
+      - POSTGRES_USER=anotai
+      - POSTGRES_PASSWORD=admin123
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+    
